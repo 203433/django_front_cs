@@ -3,6 +3,10 @@ import axios from "axios";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
+import './Login.scss';
 
 function Login() {
 
@@ -42,33 +46,29 @@ function Login() {
         });
     };
     return (
-        <div className={Login.body}>
-            <div className={Login.container}>
-                
-                <div className={Login.formContainer}>
-                    <div className={Login.form}>
-                        <h1>Login</h1>
-                        <div className={Login.group}>
-                            <input type="text" id="user-Login" required /> <span className={Login.borderBottom}></span>
-                            <label>Username</label>
-                        </div>
-                        <div className={Login.group}>
-                            <input type="password" id="pass-Login" required /> <span className={Login.borderBottom}></span>
-                            <label>Password</label>
-                        </div>
-                        <p id="warning"></p>
-                        <p>
-                            No tienes una cuenta?
-                            <NavLink to="/register" >  Registrate</NavLink>
-                        </p>
-                        <button type="submit" onClick={consumir_login}> Send </button>
+            <div>
+                <Form className="px-14  mt-7"> 
+                    <Form.Group className="text-center"    >
+                        <Form.Label className="fw-bold">Usuario</Form.Label>
+                        <Form.Control type="user" className="text-center fw-light" placeholder="Usuario" id="user-Login"   />
+                        <Form.Text className="text-muted ">
+                        No compartiremos ningun dato tuyo.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3 text-center mt-3"  >
+                        <Form.Label className="fw-bold" >Clave</Form.Label>
+                        <Form.Control  type="password" placeholder="Clave"  className="text-center fw-light fs-6 " id="pass-Login"/>
+                        <p id="warning" className="mt-2" ></p>
+                        <Button variant="dark" className="mt-4"  onClick={consumir_login} >Iniciar Sesion</Button>{' '}
                         {(localStorage.getItem('token')!==null || logeo === true)&& <Navigate to={'/profile/User'+localStorage.getItem('id_user')}/>}
-                    </div>
-                </div>
-                <div className={Login.imgForm}>
-                </div>
+                    </Form.Group> 
+                </Form>
+
+
+  
             </div>
-        </div>
+
     )
 }
 

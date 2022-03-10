@@ -8,6 +8,7 @@ import NotFound from './Components/NotFound/NotFound';
 import IndexPage from './Components/IndexPage/IndexPage';
 import Profile from './Components/Profile/Profile';
 import DashBoard from './Components/DashBoard/DashBoard';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
 
         <Route path='/Profile/:id' element={<Profile/>}></Route>
 
+        <Route path='/Profile' element={<Profile/>}></Route>
         <Route path="/DashBoard/*" element={<DashBoard />}>
 
           <Route path="welcome" element={<p>welcome</p>}/>

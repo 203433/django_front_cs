@@ -1,5 +1,13 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './Profile.scss';
+import { Figure } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
+
+import { Form } from 'react-bootstrap';
+
+
 
 function Profile() {
 
@@ -7,6 +15,8 @@ function Profile() {
     let user = localStorage.getItem('id_user');
     let image_profile = "";
     let usernameR, first_nameR,last_nameR,emailR;
+
+    
 
     const change_image = () => {
         let postData = new FormData();
@@ -148,45 +158,68 @@ function Profile() {
     }
 
     return (
-        <div className={Profile.body}>
-            <div className={Profile.profileContainer}>
-                <div className={Profile.options}>
-                    <button id="userTitle">User {user}</button>
-                    <button className={Profile.backLogin} onClick={cerrar_sesion}>Logout</button>
-                </div>
-                
-                <div className={Profile.profileImg}>
-                    <div className={Profile.bordeImg}></div>
-                    <img alt="error img" id="preview" />
-                </div>
-                <div className={Profile.image}>
-                    <input accept="image/*" type="file" id="img"></input>
-                    <button onClick={change_image}>Change Image</button>
-                    <button onClick={delete_image}>Delete Image</button>
-                </div>
-                <div className={Profile.profileInfo}>
-                    <div className={Profile.profileField}>
-                        <p><b>First name: </b></p><input id="firstName"></input>
-                    </div>
-                    <div className={Profile.profileField}>
-                        <p><b>Last name: </b></p><input id="lastName"></input>
-                    </div>
-                    <div className={Profile.profileField}>
-                        <p><b>Username: </b></p><input id="username"></input>
-                    </div>
-                    <div className={Profile.profileField}>
-                        <p><b>E-mail: </b></p><input id="email"></input>
-                    </div>
-                </div>
-                <div className={Profile.update} onClick={change_profile}>
-                    <button>
+        <div>
+                <div >
+                    <Form className="px-14  "> 
+                    <Form.Group className="text-center"    >
+                    <Figure className="mt-3">
+                    <Figure.Image
+                        width={300}
+                        height={300}
+                        alt="error img"
+                        id="preview"
+                        roundedCircle = "true"
+                    />
+                    <Figure.Caption>
+                        Holla Out
+                    </Figure.Caption>
+                </Figure>
+                    </Form.Group>
+                    <Form.Group className="text-center"    >
+                    <Form.Control accept="image/*" type="file" id="img"></Form.Control>
+                    
+
+
+                    </Form.Group  >
+
+                    <Form.Group className="text-center mt-2"    >
+                    <ButtonGroup >    
+                    <Button onClick={change_image}   >Change Image</Button>
+                    <Button onClick={delete_image}   >Delete Image</Button>
+                    </ButtonGroup>    
+                    </Form.Group>
+
+                    <Form.Group className="text-center mt-2"    >
+   
+                        <Form.Label className="fw-bold">First name:</Form.Label>
+                        <Form.Control type="text" className="text-center" id="firstName"   />
+                    </Form.Group>
+                    <Form.Group className="text-center"    >
+                        <Form.Label className="fw-bold">Last name:</Form.Label>
+                        <Form.Control type="text" className="text-center" id="lastName"   />
+                    </Form.Group>
+                    <Form.Group className="text-center"    >
+                        <Form.Label className="fw-bold">Username: </Form.Label>
+                        <Form.Control type="text" className="text-center" id="username"   />
+                    </Form.Group >
+                    <Form.Group className="text-center mb-2"    >
+                        <Form.Label className="fw-bold">E-mail: </Form.Label>
+                        <Form.Control type="text" className="text-center" id="email"   />
+                    </Form.Group>
+                    <Form.Group className="text-center"    >
+                <div  onClick={change_profile}>
+                    <Button className=" mb-2"  >
                         Change Profile
-                    </button>
+                    </Button>
                 </div>
-                
-                
-            </div>
-           
+                <div >
+                    <Button  onClick={cerrar_sesion}>Logout</Button>
+                </div>
+                    </Form.Group>
+                </Form>
+                </div>
+
+
         </div>
     )
 }

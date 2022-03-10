@@ -1,6 +1,31 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 import './IndexPage.css';
+import { Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
 export default function IndexPage() {
+    const navigate = useNavigate()
+    const handleClickMenu= () =>{
+        navigate("/")
+    }
+    const handleClickDocumentation= () =>{
+        navigate("/Documentation")
+    }
+    const handleClickComponents= () =>{
+        navigate("/Components")
+    }
+    const handleClickSuscriptions= () =>{
+        navigate("/Suscriptions")
+    }
+    const handleClickAbout= () =>{
+        navigate("/About")
+    }
+    const handleClickLogin= () =>{
+        navigate("/Login")
+    }
+    const handleClickRegister= () =>{
+        navigate("/Register")
+    }
+
   return (
     <div>
         <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -16,36 +41,38 @@ export default function IndexPage() {
 
         <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
-            <a className="navbar-item">
-                <NavLink to= '/'>  Menu  </NavLink>
-                {/* <NavLink className={({isActive}) => (isActive ? "" : "")} to= '/'>  Menu  </NavLink> */}
-
-            </a>
-
-            <a className="navbar-item">
-                <NavLink to= '/NotFound'>  Documentacion  </NavLink>
-            </a>
-
-            <a className="navbar-item">
-                <NavLink to= '/NotFound'>  Registros  </NavLink>
-            </a>
-
-            <a className="navbar-item">
-                <NavLink to= '/NotFound'>  Videos </NavLink>
-            </a>            
-
+                <ButtonGroup aria-label="Basic example">
+                <Button variant="dark" onClick={handleClickMenu}>
+                    Menu                    
+                </Button>
+                <Button variant="dark" onClick={handleClickDocumentation}>
+                    Documentation                   
+                </Button>
+                <Button variant="dark" onClick={handleClickComponents}>
+                    Components           
+                </Button>
+                <Button variant="dark" onClick={handleClickSuscriptions}>
+                    Suscriptions                    
+                </Button>
+                <Button variant="dark" onClick={handleClickAbout}>
+                    About                    
+                </Button>                
+                </ButtonGroup>
             </div>
 
             <div className="navbar-end">
             <div className="navbar-item">
                 <div className="buttons">
-                <a className='navbar-item'>
-                    <NavLink to= '/Login'>  Iniciar sesion  </NavLink>
-                </a>
+                <ButtonGroup>       
 
-                <a className="navbar-item">
-                    <NavLink   to= '/Register'>  Registro </NavLink>
-                </a>
+                <Button variant="dark" onClick={handleClickLogin}>
+                    Login                    
+                </Button>
+                <Button variant="dark" onClick={handleClickRegister}>
+                    Register                    
+                </Button>      
+                </ButtonGroup>       
+ 
                 </div>
             </div>
             </div>

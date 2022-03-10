@@ -1,6 +1,10 @@
 import axios from "axios";
 import { NavLink,Navigate } from "react-router-dom";
 import { useState } from "react";
+import './Register.scss';
+import { Button } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 function Register() {
     const [registro, setRegistro] = useState(false);
@@ -31,55 +35,46 @@ function Register() {
        
         document.getElementById("warning").textContent = warnings;
     };
-
+    
     return (
-        <div className={Register.body}>
-            <div className={Register.container}>
-                <div className={Register.formContainer}>
-                    <h1>Register</h1>
-                    <div className={Register.formRegister}>
-                        <div className={Register.group}>
-                            <input type="text" id="firstName" required /> <span className={Register.borderBottom}></span>
-                            <label>Name</label>
-                        </div>
-                        <div className={Register.group}>
-                            <input type="text" id="lastName" required /> <span className={Register.borderBottom}></span>
-                            <label>Last name</label>
-                        </div>
-                        <div className={Register.group}>
-                            <input type="password" id="pass" required /> <span className={Register.borderBottom}></span>
-                            <label>Password</label>
-                        </div>
-                        <div className={Register.group}>
-                            <input type="password" id="pass2" required /> <span className={Register.borderBottom}></span>
-                            <label id="lbl-pass2">Confirm password</label>
-                        </div>
-                        <div className={Register.group}>
-                            <input type="text" id="user" required /> <span className={Register.borderBottom}></span>
-                            <label>Username</label>
-                        </div>
-                        <div className={Register.group}>
-                            <input type="email" id="email" required /> <span className={Register.borderBottom}></span>
-                            <label>Email</label>
-                        </div>
+                <div>
+                <Form className="px-14  mt-7 "> 
+                    <Form.Group className="text-center"    >
+                        <Form.Label className="fw-bold">Nombre</Form.Label>
+                        <Form.Control type="text" className="text-center fw-light" placeholder="Nombre" id="firstName"   />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3 text-center mt-3"  >
+                        <Form.Label className="fw-bold" >Apellido</Form.Label>
+                        <Form.Control  type="text" placeholder="Apellido"  className="text-center fw-light fs-6 " id="lastName" />
+                    </Form.Group> 
+
+                    <Form.Group className="text-center"    >
+                        <Form.Label className="fw-bold">Clave</Form.Label>
+                        <Form.Control type="password" className="text-center fw-light" placeholder="clave" id="pass"    />
+
+                    </Form.Group>
+
+                    <Form.Group className="mb-3 text-center mt-3"  >
+                        <Form.Label className="fw-bold" >Repita la clave</Form.Label>
+                        <Form.Control  type="password" placeholder="Repita la clave"  className="text-center fw-light fs-6 " id="pass2"/>
+                    </Form.Group> 
+
+                    <Form.Group className="text-center" >
+                        <Form.Label className="fw-bold">Usuario</Form.Label>
+                        <Form.Control type="text" className="text-center fw-light" placeholder="Usuario" id="user"   />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3 text-center mt-3"  >
+                        <Form.Label className="fw-bold" >Email</Form.Label>
+                        <Form.Control  type="email" placeholder="Email"  className="text-center fw-light fs-6 " id="email"/>
                         <p id="message"></p>
                         
-                        <button type="submit" onClick={register_user}> Register </button>
-                        {registro === true && <Navigate to={'/login'}/>}
-                    </div>
-                    <div className={Register.group}>
-                        <p>
-                            Ya tienes una cuenta?
-                        <NavLink to="/login" > Inicia Sesion</NavLink>
-                        </p>
-                    </div>
-                    
+                        <Button  variant="dark" onClick={register_user}> Register </Button>
+                        {registro === true && <Navigate to={'/Login'}/>}
+                    </Form.Group> 
+                </Form>
                 </div>
-                <div className={Register.imgForm}>
-                    
-                </div>
-            </div>
-        </div>
     )
 }
 
