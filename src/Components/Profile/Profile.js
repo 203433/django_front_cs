@@ -4,20 +4,14 @@ import './Profile.scss';
 import { Figure } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { ButtonGroup } from 'react-bootstrap';
-
 import { Form } from 'react-bootstrap';
-
-
-
 function Profile() {
 
     let token = localStorage.getItem('token');
     let user = localStorage.getItem('id_user');
     let image_profile = "";
     let usernameR, first_nameR,last_nameR,emailR;
-
     
-
     const change_image = () => {
         let postData = new FormData();
         postData.append('id_user', user);
@@ -71,7 +65,7 @@ function Profile() {
         }).then((response) => {
             console.log(response.data);
             alert("Imagen eliminada");
-            image_profile = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+            image_profile = "https://www.optimview.com/sites/default/files/team/icono_persona.png";
             document.getElementById('preview').url = image_profile;
             window.location.reload();
         });
@@ -88,11 +82,11 @@ function Profile() {
                     image_profile = "http://localhost:8000" + response.data.url_img;
                     document.getElementById('preview').src = image_profile;
                 }else{
-                    document.getElementById('preview').src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+                    document.getElementById('preview').src = "https://www.optimview.com/sites/default/files/team/icono_persona.png";
                 }
             }).catch((error) => {
                 console.error("Error al obtener la imagen");
-                document.getElementById('preview').src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+                document.getElementById('preview').src = "https://www.optimview.com/sites/default/files/team/icono_persona.png";
             });
 
         axios.get("http://localhost:8000/api/v1/user/data/"+user+"/",{
@@ -104,6 +98,7 @@ function Profile() {
             first_nameR = response.data.first_name;
             last_nameR = response.data.last_name;
             emailR = response.data.email;
+
             document.getElementById("firstName").placeholder = first_nameR;
             document.getElementById("lastName").placeholder = last_nameR;
             document.getElementById("email").placeholder = emailR;
@@ -123,11 +118,11 @@ function Profile() {
         if(usernamePut === ""){
             usernamePut = usernameR; 
         }
+        if(firstNamePut === ""){
+            firstNamePut = first_nameR;
+        }
         if(lastNamePut === ""){
             lastNamePut = last_nameR;
-        }
-        if(firstNamePut === ""){
-            lastNamePut = first_nameR;
         }
         if(emailPut === ""){
             emailPut = emailR;
