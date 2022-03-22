@@ -1,7 +1,6 @@
-import {NavLink, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import './IndexPage.css';
-import { Button } from 'react-bootstrap';
-import { ButtonGroup } from 'react-bootstrap';
+import { Button, ButtonGroup } from 'react-bootstrap';
 export default function IndexPage() {
     const navigate = useNavigate()
     const handleClickMenu= () =>{

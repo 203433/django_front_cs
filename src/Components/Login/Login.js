@@ -1,11 +1,8 @@
 import axios from "axios";
 
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { Button } from 'react-bootstrap';
-import { ButtonGroup } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import './Login.scss';
 
 function Login() {

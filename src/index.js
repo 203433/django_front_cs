@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Login from './Components/Login/Login';
 
-import axios from 'axios';
-import Register from './Components/Register/Register';
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}

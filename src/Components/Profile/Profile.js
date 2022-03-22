@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './Profile.scss';
-import { Figure } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { ButtonGroup } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
+import { Figure, Button, ButtonGroup, Form } from 'react-bootstrap';
+
 function Profile() {
 
     let token = localStorage.getItem('token');

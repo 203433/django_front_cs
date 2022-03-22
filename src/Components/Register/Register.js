@@ -1,10 +1,8 @@
 import axios from "axios";
-import { NavLink,Navigate } from "react-router-dom";
-import { useState } from "react";
 import './Register.scss';
-import { Button } from 'react-bootstrap';
-import { ButtonGroup } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { Button, Form } from 'react-bootstrap';
 
 function Register() {
     const [registro, setRegistro] = useState(false);
