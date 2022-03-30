@@ -1,6 +1,6 @@
-projectKey=Front-end
+projectKey=Front-end_V2
 serverUrl=http://localhost:9000
 serverVersion=9.3.0.51899
-dashboardUrl=http://localhost:9000/dashboard?id=Front-end
-ceTaskId=AX-ucGPk8mRnkL6iUuTA
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX-ucGPk8mRnkL6iUuTA
+dashboardUrl=http://localhost:9000/dashboard?id=Front-end_V2
+ceTaskId=AX-8bnCqPAzCexoYCyBv
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX-8bnCqPAzCexoYCyBv

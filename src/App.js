@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import Register from "./Components/Register/Register";
